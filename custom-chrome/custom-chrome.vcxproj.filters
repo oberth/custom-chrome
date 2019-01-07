@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="source\entrypoint.cpp" />
+    <ClCompile Include="source\application.cpp" />
+    <ClCompile Include="source\graphics\renderer.cpp" />
+    <ClCompile Include="source\gui\window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\application.hpp" />
+    <ClInclude Include="source\com\memory.hpp" />
+    <ClInclude Include="source\com\runtime_validation.hpp" />
+    <ClInclude Include="source\graphics\image.hpp" />
+    <ClInclude Include="source\graphics\renderer.hpp" />
+    <ClInclude Include="source\utility\string_conversion.hpp" />
+    <ClInclude Include="source\utility\measure.hpp" />
+    <ClInclude Include="source\gui\window.hpp" />
+    <ClInclude Include="source\gui\window_helper.hpp" />
+  </ItemGroup>
+</Project>
