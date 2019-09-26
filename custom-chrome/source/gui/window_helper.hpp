@@ -7,6 +7,9 @@
 #include <cstdint>
 #include <Windows.h>
 #include <windowsx.h>
+#include <vsstyle.h>
+#include <vssym32.h>
+#include <Uxtheme.h>
 
 namespace chrome::gui::helper {
 
@@ -46,22 +49,18 @@ namespace chrome::gui::helper {
 
     }
 
-    auto compute_standard_caption_height_for_dpi(std::uint32_t dpi) {
+    auto compute_standard_caption_height_for_window(HWND window_handle) {
 
-        auto const user_scaling = static_cast<float>(dpi) / 96.0f;
+        auto caption_size = SIZE {};
+        auto dpi = GetDpiForWindow(window_handle);
+        auto theme = OpenThemeData(window_handle, L"WINDOW");
+        
+        GetThemePartSize(theme, nullptr, WP_CAPTION, CS_ACTIVE, nullptr, TS_TRUE, &caption_size);
+        CloseThemeData(theme);
 
-        auto const base_caption = GetSystemMetricsForDpi(SM_CYCAPTION, 96);
-        auto const base_frame_padding = GetSystemMetricsForDpi(SM_CXFIXEDFRAME, 96);
-        auto const framesize = GetSystemMetricsForDpi(SM_CYSIZEFRAME, dpi);
-        auto const border = GetSystemMetricsForDpi(SM_CYBORDER, dpi);
+        auto full_caption_height = static_cast<float>(caption_size.cy * dpi) / 96.0f;
+        return static_cast<std::uint32_t>(full_caption_height) + 2u;
 
-        auto const linear_part = user_scaling * (base_caption + base_frame_padding);
-        return static_cast<std::uint32_t>(std::ceilf(linear_part + framesize + border));
-
-    }
-
-    auto compute_standard_caption_for_current_dpi() {
-        return compute_standard_caption_height_for_dpi(GetDpiForSystem());
     }
 
 }

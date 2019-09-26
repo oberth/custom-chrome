@@ -93,7 +93,9 @@ namespace chrome::gui {
             static_cast<int>(dimension.width), static_cast<int>(dimension.height), SWP_FRAMECHANGED
         );
 
-        _margins.cyTopHeight = helper::compute_standard_caption_height_for_dpi(dpi) + 5;
+        auto offset_for_tabs = 10u; // Arbitrary
+        auto caption_height = helper::compute_standard_caption_height_for_window(_system_window_handle);
+        _margins = { 0, 0, static_cast<int>(caption_height + offset_for_tabs), 0 };
         auto hr = DwmExtendFrameIntoClientArea(_system_window_handle, &_margins);
         if (FAILED(hr)) throw std::runtime_error { "DWM failed to extend frame into the client area." };
         _client_area_offset_dip = static_cast<float>(_margins.cyTopHeight) / _user_scaling;

@@ -3,18 +3,52 @@
   <ItemGroup>
     <ClCompile Include="source\entrypoint.cpp" />
     <ClCompile Include="source\application.cpp" />
-    <ClCompile Include="source\graphics\renderer.cpp" />
-    <ClCompile Include="source\gui\window.cpp" />
+    <ClCompile Include="source\gui\window.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\graphics\renderer.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\application.hpp" />
-    <ClInclude Include="source\com\memory.hpp" />
-    <ClInclude Include="source\com\runtime_validation.hpp" />
-    <ClInclude Include="source\graphics\image.hpp" />
-    <ClInclude Include="source\graphics\renderer.hpp" />
-    <ClInclude Include="source\utility\string_conversion.hpp" />
-    <ClInclude Include="source\utility\measure.hpp" />
-    <ClInclude Include="source\gui\window.hpp" />
-    <ClInclude Include="source\gui\window_helper.hpp" />
+    <ClInclude Include="source\gui\window.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gui\window_helper.hpp">
+      <Filter>gui</Filter>
+    </ClInclude>
+    <ClInclude Include="source\utility\string_conversion.hpp">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="source\utility\measure.hpp">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="source\com\runtime_validation.hpp">
+      <Filter>com</Filter>
+    </ClInclude>
+    <ClInclude Include="source\com\memory.hpp">
+      <Filter>com</Filter>
+    </ClInclude>
+    <ClInclude Include="source\graphics\image.hpp">
+      <Filter>graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="source\graphics\renderer.hpp">
+      <Filter>graphics</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="gui">
+      <UniqueIdentifier>{4de12cde-7dde-4a1f-927f-27879bcdcdaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{59fb45eb-97bd-401a-8cda-394f59fa4b58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="com">
+      <UniqueIdentifier>{8d16110a-48b6-4261-9ff8-c55dc19a2950}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics">
+      <UniqueIdentifier>{c0e4ea91-db78-4a47-a3e6-c52deabbcd10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

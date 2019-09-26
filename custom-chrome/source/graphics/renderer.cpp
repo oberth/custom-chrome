@@ -37,12 +37,6 @@ namespace chrome::graphics {
         
         auto pixel_format = D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED);
 
-        _factory_d2d1->GetDesktopDpi(&_dpi_x, &_dpi_y);
-        auto properties = D2D1::RenderTargetProperties(
-            D2D1_RENDER_TARGET_TYPE_DEFAULT, pixel_format, _dpi_x, _dpi_y, 
-            D2D1_RENDER_TARGET_USAGE_NONE, D2D1_FEATURE_LEVEL_DEFAULT
-        );
-
         IDWriteFactory* temporary_factory_dwrite;
         hr = DWriteCreateFactory(
             DWRITE_FACTORY_TYPE_ISOLATED, __uuidof(IDWriteFactory), 
@@ -98,6 +92,7 @@ namespace chrome::graphics {
     auto renderer::attach_to_window(HWND window_handle) -> void {
 
         _associated_window = window_handle;
+        _dpi_x = _dpi_y = static_cast<float>(GetDpiForWindow(window_handle));
 
         IDCompositionTarget* temporary_target;
         auto hr = _device_dcomp->CreateTargetForHwnd(window_handle, true, &temporary_target);
@@ -151,9 +146,8 @@ namespace chrome::graphics {
 
         _brush->SetColor(D2D1::ColorF(fill_color.r, fill_color.g, fill_color.b, fill_color.a));
 
-        // No reference because MSVC has issues. (Bug reported, fix expected in VS 2019)
-        auto [origin, dimension] = fill_area;
-        auto [x, y] = origin; auto [w, h] = dimension;
+        auto& [origin, dimension] = fill_area;
+        auto& [x, y] = origin; auto [w, h] = dimension;
 
         _device_context_d2d1->FillRectangle(D2D1::RectF(x, y, x + w, y + h), _brush.get());
 

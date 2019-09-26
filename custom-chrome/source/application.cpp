@@ -1,6 +1,5 @@
 #include <array>
 #include <sstream>
-#include <dwmapi.h>
 
 #include <application.hpp>
 
