@@ -1,6 +1,6 @@
 ## Just a maintenance update | 2020
 
-Everything still #justworks. The sample was built using the latest Visual Studio 2017, Windows 10 SDK and MSVC version. **Stay safe, everyone.**
+Everything still #justworks. The sample was built using the latest Visual Studio 2019, Windows 10 SDK and MSVC version. **Stay safe, everyone.**
 
 # custom-chrome
 
