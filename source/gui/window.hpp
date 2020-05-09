@@ -16,8 +16,6 @@ namespace chrome::gui {
 
         friend auto CALLBACK process_message(HWND, UINT, WPARAM, LPARAM) -> LRESULT;
 
-        window() = delete;
-
         window(std::string title, measure::rectangle<float> const& frame);
 
         window(window const&) = delete;

@@ -18,37 +18,37 @@
     <ClInclude Include="source\gui\window_helper.hpp">
       <Filter>gui</Filter>
     </ClInclude>
-    <ClInclude Include="source\utility\string_conversion.hpp">
-      <Filter>utility</Filter>
-    </ClInclude>
-    <ClInclude Include="source\utility\measure.hpp">
-      <Filter>utility</Filter>
-    </ClInclude>
     <ClInclude Include="source\com\runtime_validation.hpp">
       <Filter>com</Filter>
     </ClInclude>
     <ClInclude Include="source\com\memory.hpp">
       <Filter>com</Filter>
     </ClInclude>
-    <ClInclude Include="source\graphics\image.hpp">
-      <Filter>graphics</Filter>
+    <ClInclude Include="source\utility\string_conversion.hpp">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="source\utility\measure.hpp">
+      <Filter>utility</Filter>
     </ClInclude>
     <ClInclude Include="source\graphics\renderer.hpp">
+      <Filter>graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="source\graphics\image.hpp">
       <Filter>graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="gui">
-      <UniqueIdentifier>{4de12cde-7dde-4a1f-927f-27879bcdcdaf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="utility">
-      <UniqueIdentifier>{59fb45eb-97bd-401a-8cda-394f59fa4b58}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="com">
-      <UniqueIdentifier>{8d16110a-48b6-4261-9ff8-c55dc19a2950}</UniqueIdentifier>
+      <UniqueIdentifier>{0deb0bad-a6e4-4bcb-9d29-684518e7a532}</UniqueIdentifier>
     </Filter>
     <Filter Include="graphics">
-      <UniqueIdentifier>{c0e4ea91-db78-4a47-a3e6-c52deabbcd10}</UniqueIdentifier>
+      <UniqueIdentifier>{a337ac6e-980e-44e5-84cb-9c2fca5d6f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="com">
+      <UniqueIdentifier>{ff41b8fc-9648-4077-b7c6-d3e667514b47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{be079675-9c7b-4d9a-9d59-508aba0b74c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

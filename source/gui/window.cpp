@@ -31,14 +31,16 @@ namespace chrome::gui {
             auto client_area_needs_calculating = static_cast<bool>(wparam);
 
             if (client_area_needs_calculating) {
+
                 auto parameters = reinterpret_cast<NCCALCSIZE_PARAMS*>(lparam);
 
                 auto& requested_client_area = parameters->rgrc[0];
-                requested_client_area.right -= GetSystemMetrics(SM_CXFRAME) + GetSystemMetrics(SM_CXPADDEDBORDER);
-                requested_client_area.left += GetSystemMetrics(SM_CXFRAME) + GetSystemMetrics(SM_CXPADDEDBORDER);
-                requested_client_area.bottom -= GetSystemMetrics(SM_CYFRAME) + GetSystemMetrics(SM_CXPADDEDBORDER);
+                requested_client_area.right     -= GetSystemMetrics(SM_CXFRAME) + GetSystemMetrics(SM_CXPADDEDBORDER);
+                requested_client_area.left      += GetSystemMetrics(SM_CXFRAME) + GetSystemMetrics(SM_CXPADDEDBORDER);
+                requested_client_area.bottom    -= GetSystemMetrics(SM_CYFRAME) + GetSystemMetrics(SM_CXPADDEDBORDER);
 
                 return 0;
+
             }
 
         }
@@ -52,8 +54,9 @@ namespace chrome::gui {
         }
 
         else if (message == WM_PAINT) window->paint();
-        else if (message == WM_CLOSE) PostQuitMessage(0);
         else if (message == WM_SIZE) window->handle_resize();
+
+        else if (message == WM_DESTROY) PostQuitMessage(0);
 
         return DefWindowProcW(window_handle, message, wparam, lparam);
 
@@ -80,7 +83,7 @@ namespace chrome::gui {
             WS_OVERLAPPEDWINDOW, 10, 10, 100, 100, nullptr, nullptr, window_class.hInstance, this
         );
 
-        if (_system_window_handle == nullptr) throw std::runtime_error{ "Failed to create a window." };
+        if (_system_window_handle == nullptr) throw std::runtime_error { "Failed to create a window." };
 
         auto dpi = GetDpiForWindow(_system_window_handle);
         _user_scaling = static_cast<float>(dpi) / 96.0f;

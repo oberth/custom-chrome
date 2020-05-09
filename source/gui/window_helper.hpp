@@ -51,15 +51,15 @@ namespace chrome::gui::helper {
 
     auto compute_standard_caption_height_for_window(HWND window_handle) {
 
-        auto caption_size = SIZE {};
-        auto dpi = GetDpiForWindow(window_handle);
+        SIZE caption_size {};
+        auto const accounting_for_borders = 2;
         auto theme = OpenThemeData(window_handle, L"WINDOW");
-        
+        auto dpi = GetDpiForWindow(window_handle);
         GetThemePartSize(theme, nullptr, WP_CAPTION, CS_ACTIVE, nullptr, TS_TRUE, &caption_size);
         CloseThemeData(theme);
 
-        auto full_caption_height = static_cast<float>(caption_size.cy * dpi) / 96.0f;
-        return static_cast<std::uint32_t>(full_caption_height) + 2u;
+        auto height = static_cast<float>(caption_size.cy * dpi) / 96.0f;
+        return static_cast<int>(height) + accounting_for_borders;
 
     }
 

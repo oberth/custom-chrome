@@ -6,8 +6,9 @@
 
 namespace com {
 
-    // By the same token, you can have com::shared_ptr if you want to 
-    // move away from COM reference counting and have something nicer to look at.
+    // Just a basic idea how to change semantics and move away from COM reference counting.
+    // For production, you'd have to extend this to be more robust for all use cases.
+    // I also suggest completely wrapping COM interfaces on top of that.
 
     template <typename ComType>
     struct com_deleter {
@@ -33,6 +34,7 @@ namespace com {
         com_object->Release();
 
         return make_unique(com_object_with_destination_interface);
+
     }
 
 }

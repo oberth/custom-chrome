@@ -7,7 +7,7 @@ namespace chrome {
 
     application::application(char**, int) {
 
-        auto frame = measure::rectangle{ 100.0f, 100.0f, 1280.f, 720.f };
+        auto frame = measure::rectangle { 100.0f, 100.0f, 1280.f, 720.f };
         _window = std::make_unique<gui::window>("Chrome management", frame);
         _window->show_window(); 
         
@@ -15,7 +15,7 @@ namespace chrome {
 
     auto application::execute() -> int {
 
-        MSG message_structure{};
+        MSG message_structure {};
 
         while (message_structure.message != WM_QUIT)
         if (PeekMessageW(&message_structure, nullptr, 0, 0, PM_REMOVE)) {

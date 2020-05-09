@@ -11,14 +11,13 @@ namespace chrome {
 
     struct application {
 
-        application() = delete;
         application(char** args, int argument_count);
 
         application(application const&) = delete;
-        application(application&&) = delete;
+        application(application&&)      = delete;
 
-        application& operator=(application const&) = delete;
-        application& operator=(application&&) = delete;
+        application& operator=(application const&)  = delete;
+        application& operator=(application&&)       = delete;
 
         ~application() = default;
 
